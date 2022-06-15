@@ -8,8 +8,9 @@ e.g. github.com/내계정/capstone-project-base
 
 1. Gitpod 로 접속
 본인의 레포지토리 주소 앞에 "gitpod.io/#" 을 넣고 접속 
-[e.g. gitpod.io/#https://github.com/msa-school/capstone-project-base](https://gitpod.io/#https://github.com/alphamega89/capstone-project-base)
-
+```
+https://gitpod.io/#https://github.com/alphamega89/capstone-project-base
+```
 1. VS Code 접속 및 Language Server 확인
 - VS Code 접속 후, store-domain > main > java 내의 Java 파일을 하나 Open
 - Java Language Server 가 기동되는 것을 꼭 확인
