@@ -1,0 +1,16 @@
+[2022-06-17T02:16:40.611+0000][gc,heap] Heap region size: 1M
+[2022-06-17T02:16:40.614+0000][gc     ] Using G1
+[2022-06-17T02:16:40.614+0000][gc,heap,coops] Heap address: 0x00000000e7000000, size: 400 MB, Compressed Oops mode: 32-bit
+[2022-06-17T02:16:41.060+0000][gc,start     ] GC(0) Pause Young (Normal) (G1 Evacuation Pause)
+[2022-06-17T02:16:41.060+0000][gc,task      ] GC(0) Using 6 workers of 6 for evacuation
+[2022-06-17T02:16:41.063+0000][gc,phases    ] GC(0)   Pre Evacuate Collection Set: 0.0ms
+[2022-06-17T02:16:41.063+0000][gc,phases    ] GC(0)   Evacuate Collection Set: 2.5ms
+[2022-06-17T02:16:41.063+0000][gc,phases    ] GC(0)   Post Evacuate Collection Set: 0.3ms
+[2022-06-17T02:16:41.063+0000][gc,phases    ] GC(0)   Other: 0.5ms
+[2022-06-17T02:16:41.063+0000][gc,heap      ] GC(0) Eden regions: 20->0(17)
+[2022-06-17T02:16:41.063+0000][gc,heap      ] GC(0) Survivor regions: 0->3(3)
+[2022-06-17T02:16:41.063+0000][gc,heap      ] GC(0) Old regions: 0->3
+[2022-06-17T02:16:41.063+0000][gc,heap      ] GC(0) Humongous regions: 0->0
+[2022-06-17T02:16:41.063+0000][gc,metaspace ] GC(0) Metaspace: 15226K->15226K(1062912K)
+[2022-06-17T02:16:41.063+0000][gc           ] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 20M->5M(400M) 3.424ms
+[2022-06-17T02:16:41.063+0000][gc,cpu       ] GC(0) User=0.02s Sys=0.00s Real=0.01s
