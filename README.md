@@ -2,7 +2,7 @@
 
 ```
 브레인스토밍 https://labs.msaez.io/#/courses/cna-full/be513ff0-e2d5-11ec-b71d-f90e603c5333/capstone-team/alphamega89@naver.com
-
+현지
 
 5.로그인 (원장분리)
 
