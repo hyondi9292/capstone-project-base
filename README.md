@@ -5,10 +5,8 @@
 ##  다시 수정분 해보자
 
 ## 소스  운영버전 pull 명령어
-git fetch upstream
-git checkout main
-git merge upstream/main
-git push origin main
+
+
 
 ## 깃팟 다시 해보자
 # 캡스톤 프로젝트 환경
