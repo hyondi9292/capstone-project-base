@@ -1,32 +1,41 @@
 package msalogin.domain;
 
 import java.util.Date;
-import java.util.List;
-import javax.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import msalogin.CustomerTeamApplication;
-import msalogin.domain.CustomerCancelled;
-import msalogin.domain.CustomerRegistered;
+import msalogin.domain.*;
+import msalogin.infra.AbstractEvent;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.beans.BeanUtils;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
 @Entity
-@Table(name = "Customer_table")
+@Table(name = "CustomerList_Base")
 @Data
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long customerId;
-
-    private String status;
-
-    private String address;
-
-    private String telNo;
-
-    private String name;
-
-    private String juminNo;
+    private Long CustomerId;
+    @Column
+    private String Status;
+    @Column
+    private String Address;
+    @Column
+    private String Telno;
+    @Column
+    private String Name;
+    @Column
+    private String JuminNo;
 
     @PostPersist
     public void onPostPersist() {
@@ -37,10 +46,6 @@ public class Customer {
         CustomerCancelled customerCancelled = new CustomerCancelled();
         BeanUtils.copyProperties(this, customerCancelled);
         customerCancelled.publishAfterCommit();
-        // Get request from Account
-        //msalogin.external.Account account =
-        //    Application.applicationContext.getBean(msalogin.external.AccountService.class)
-        //    .getAccount(/** mapping value needed */);
 
     }
 
@@ -50,6 +55,5 @@ public class Customer {
         );
         return customerRepository;
     }
-    // keep
-
+    
 }

@@ -2,6 +2,7 @@ package msalogin.external;
 
 import lombok.Data;
 import java.util.Date;
+
 @Data
 public class Account {
 
@@ -11,5 +12,4 @@ public class Account {
     private String accountStatus;
 
     // keep
-
 }
