@@ -20,6 +20,7 @@ import msalogin.infra.AbstractEvent;
 public class Balance {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
     @Column
     private String accountNo;

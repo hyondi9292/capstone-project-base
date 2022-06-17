@@ -27,6 +27,7 @@ public class Account {
 
     @PostPersist
     public void onPostPersist() {
+        /*
         BalanceDecreased balanceDecreased = new BalanceDecreased();
         BeanUtils.copyProperties(this, balanceDecreased);
         balanceDecreased.publishAfterCommit();
@@ -34,7 +35,7 @@ public class Account {
         BalanceIncreased balanceIncreased = new BalanceIncreased();
         BeanUtils.copyProperties(this, balanceIncreased);
         balanceIncreased.publishAfterCommit();
-
+        */
         AccountCreated accountCreated = new AccountCreated();
         BeanUtils.copyProperties(this, accountCreated);
         accountCreated.publishAfterCommit();
