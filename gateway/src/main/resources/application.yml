@@ -1,0 +1,82 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: Login
+          uri: http://localhost:8081
+          predicates:
+            - Path=/logins/** 
+        - id: CustomerTeam
+          uri: http://localhost:8082
+          predicates:
+            - Path=/customers/** 
+        - id: BankingTeam
+          uri: http://localhost:8083
+          predicates:
+            - Path=/smartbankings/** 
+        - id: DepositTeam
+          uri: http://localhost:8084
+          predicates:
+            - Path=/accounts/** 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: Login
+          uri: http://login:8080
+          predicates:
+            - Path=/logins/** 
+        - id: CustomerTeam
+          uri: http://customerTeam:8080
+          predicates:
+            - Path=/customers/** 
+        - id: BankingTeam
+          uri: http://bankingTeam:8080
+          predicates:
+            - Path=/smartbankings/** 
+        - id: DepositTeam
+          uri: http://depositTeam:8080
+          predicates:
+            - Path=/accounts/** 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
