@@ -3,9 +3,14 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
+<<<<<<< HEAD
   - init:  git fetch upstream && git checkout master && git merge upstream/master && git push origin master
 
 
+=======
+  - init:  pip install httpie
+#           git fetch upstream && git checkout master && git merge upstream/master && git push origin master
+>>>>>>> upstream/main
 #           pip install httpie 
 
 #           cd kafka
