@@ -1,7 +1,7 @@
 # git fork
-
-## testesttest
-
+## 메인의 깃팟 실행 -- 시연시사용
+#각자 포크한 깃팟에서 수정분 깃헙에 커밋하고, 풀리퀘스트 하면, 메인에서 커밋해준다.
+https://gitpod.io/#https://github.com/alphamega89/capstone-project-base
 # 캡스톤 프로젝트 환경
 
 ```
