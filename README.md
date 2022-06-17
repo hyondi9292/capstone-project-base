@@ -2,6 +2,7 @@
 ## 메인의 깃팟 실행 -- 시연시사용
 #각자 포크한 깃팟에서 수정분 깃헙에 커밋하고, 풀리퀘스트 하면, 메인에서 커밋해준다.
 메인 깃팟 https://gitpod.io/#https://github.com/alphamega89/capstone-project-base
+##  다시 수정분 해보자
 
 ## 소스  운영버전 pull 명령어
 git fetch upstream
