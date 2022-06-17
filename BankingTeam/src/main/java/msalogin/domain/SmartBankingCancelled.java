@@ -5,13 +5,17 @@ import lombok.Data;
 import msalogin.domain.*;
 import msalogin.infra.AbstractEvent;
 
-@Data
-public class SmartBankingCanceled extends AbstractEvent {
 
+@Data
+
+public class SmartBankingCancelled extends AbstractEvent {
+
+  
     private Long customerId;
     private String status;
 
-    public SmartBankingCanceled() {
+    public SmartBankingCancelled() {
+
         super();
     }
     // keep

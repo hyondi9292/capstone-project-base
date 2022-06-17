@@ -18,7 +18,7 @@ public class PolicyHandler {
     public void whatever(@Payload String eventString) {}
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverCustomerCancelled_CustomerStatusCanceledCancle(
+    public void wheneverCustomerCancelled_CustomerStatusCancelledCancle(
         @Payload CustomerCancelled customerCancelled
     ) {
         if (!customerCancelled.validate()) return;
