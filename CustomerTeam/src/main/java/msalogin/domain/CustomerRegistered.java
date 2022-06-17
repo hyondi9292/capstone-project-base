@@ -8,8 +8,8 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class CustomerRegistered extends AbstractEvent {
 
-    private Long customerId;
-    private String status;
+    private Long CustomerId;
+    private String Status;
 
     public CustomerRegistered() {
         super();
