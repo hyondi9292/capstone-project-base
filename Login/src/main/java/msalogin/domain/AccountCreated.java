@@ -11,4 +11,10 @@ public class AccountCreated extends AbstractEvent {
     private String AccountNo;
     private String AccountBal;
     private String AccountStatus;
+    public Long getId() {
+        return null;
+    }
+    public Object getAccountNo() {
+        return null;
+    }
 }

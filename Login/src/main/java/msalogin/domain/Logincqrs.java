@@ -19,4 +19,12 @@ public class Logincqrs {
     private String accountStatus;
     private String accountNo;
     private String accountBal;
+    public void setCustomerId(Object customerId2) {
+    }
+    public void setCustomerStatus(int i) {
+    }
+    public void setAccountBal(Object accountBal2) {
+    }
+    public void setAccountNo(Object accountNo2) {
+    }
 }

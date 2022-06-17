@@ -12,5 +12,4 @@ public class Account {
     private String accountStatus;
 
     // keep
-    
 }
