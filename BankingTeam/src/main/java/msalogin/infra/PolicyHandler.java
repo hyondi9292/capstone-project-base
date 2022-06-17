@@ -14,11 +14,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class PolicyHandler {
 
+    @Autowired
+    SmartbankingRepository smartbankingRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverCustomerCancelled_CustomerStatusCancelledCancle(
+    public void wheneverCustomerCancelled_CustomerStatusCanceledCancle(
         @Payload CustomerCancelled customerCancelled
     ) {
         if (!customerCancelled.validate()) return;
@@ -28,8 +31,9 @@ public class PolicyHandler {
             customerCancelled.toJson() +
             "\n\n"
         );
-        // Sample Logic //
 
+        // Sample Logic //
+        Smartbanking.customerStatusCanceledCancle(event);
     }
     // keep
 

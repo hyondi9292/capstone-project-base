@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: login
+  name: Login
   labels:
-    app: login
+    app: Login
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: login
+      app: Login
   template:
     metadata:
       labels:
-        app: login
+        app: Login
     spec:
       containers:
-        - name: login
-          image: username/login:latest
+        - name: Login
+          image: username/Login:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -165,15 +165,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: login
+  name: Login
   labels:
-    app: login
+    app: Login
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: login
+    app: Login
 
 
 ---

@@ -8,22 +8,22 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: login
+        - id: Login
           uri: http://localhost:8081
           predicates:
-            - Path= 
+            - Path=/logins/** 
         - id: CustomerTeam
           uri: http://localhost:8082
           predicates:
-            - Path= 
+            - Path=/customers/** 
         - id: BankingTeam
           uri: http://localhost:8083
           predicates:
-            - Path= 
+            - Path=/smartbankings/** 
         - id: DepositTeam
           uri: http://localhost:8084
           predicates:
-            - Path= 
+            - Path=/accounts/** 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -47,22 +47,22 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: login
+        - id: Login
           uri: http://login:8080
           predicates:
-            - Path= 
+            - Path=/logins/** 
         - id: CustomerTeam
           uri: http://customerTeam:8080
           predicates:
-            - Path= 
+            - Path=/customers/** 
         - id: BankingTeam
           uri: http://bankingTeam:8080
           predicates:
-            - Path= 
+            - Path=/smartbankings/** 
         - id: DepositTeam
           uri: http://depositTeam:8080
           predicates:
-            - Path= 
+            - Path=/accounts/** 
         - id: frontend
           uri: http://frontend:8080
           predicates:

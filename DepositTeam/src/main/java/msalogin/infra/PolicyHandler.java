@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class PolicyHandler {
 
+    @Autowired
+    AccountRepository accountRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
     // keep
