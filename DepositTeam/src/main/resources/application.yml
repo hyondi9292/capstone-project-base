@@ -6,6 +6,8 @@ server:
 spring:
   profiles: default
   jpa:
+    database:
+      platform: org.hibernate.dialect.H2Dialect
     properties:
       hibernate:
         show_sql: true
