@@ -3,7 +3,6 @@ package msalogin.infra;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.naming.NameParser;
-import javax.naming.NameParser;
 import msalogin.config.kafka.KafkaProcessor;
 import msalogin.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
