@@ -17,7 +17,11 @@ import org.springframework.stereotype.Service;
 public class PolicyHandler {
 
     @Autowired
+<<<<<<< HEAD
     BalanceRepository balanceRepository;
+=======
+    AccountRepository accountRepository;
+>>>>>>> upstream/main
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whateverBalance_change(@Payload String eventString) {

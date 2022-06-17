@@ -12,6 +12,7 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+<<<<<<< HEAD
   h2:
     console:
       enabled: true
@@ -23,6 +24,8 @@ spring:
       url: jdbc:h2:~/test
       username: sa
       password:
+=======
+>>>>>>> upstream/main
   cloud:
     stream:
       kafka:

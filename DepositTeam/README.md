@@ -1,14 +1,5 @@
 # DepositTeam
 
-
-#### zookeeper 실행
-# bin/zookeeper-server-start.sh config/zookeeper.properties
-# bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
-
-### kafka 실행
-# bin/kafka-server-start.sh config/server.properties
-# bin/kafka-server-start.sh -daemon config/server.properties
-
 ## Running in local development environment
 
 ```
