@@ -9,4 +9,7 @@ public class SmartBankingRegistered extends AbstractEvent {
 
     private Long CustomerId;
     private String Status;
+    public Long getId() {
+        return null;
+    }
 }
