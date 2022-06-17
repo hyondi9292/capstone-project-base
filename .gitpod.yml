@@ -4,10 +4,10 @@
 
 tasks:
   - init:  git fetch upstream && git checkout master && git merge upstream/master && git push origin master
-<<<<<<< HEAD
-=======
+
+
 #           pip install httpie 
->>>>>>> upstream/main
+
 #           cd kafka
 #           bin/zookeeper-server-start.sh config/zookeeper.properties
 #           bin/kafka-server-start.sh config/server.properties
