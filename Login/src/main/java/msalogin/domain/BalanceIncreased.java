@@ -10,4 +10,10 @@ public class BalanceIncreased extends AbstractEvent {
     private Long CustomerId;
     private String AccountNo;
     private String AccountBal;
+    public String getAccountNo() {
+        return null;
+    }
+    public Object getAccountBal() {
+        return null;
+    }
 }

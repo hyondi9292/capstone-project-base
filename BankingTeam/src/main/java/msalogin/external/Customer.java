@@ -13,5 +13,4 @@ public class Customer {
     private String juminNo;
 
     // keep
-w
 }

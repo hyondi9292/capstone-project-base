@@ -9,4 +9,10 @@ public class CustomerRegistered extends AbstractEvent {
 
     private Long CustomerId;
     private String Status;
+    public Object getCustomerId() {
+        return null;
+    }
+    public Long getId() {
+        return null;
+    }
 }
