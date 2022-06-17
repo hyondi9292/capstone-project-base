@@ -18,14 +18,14 @@ public class PolicyHandler {
     public void whatever(@Payload String eventString) {}
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverCustomerCanceled_CustomerStatusCanceledCancle(
-        @Payload CustomerCanceled customerCanceled
+    public void wheneverCustomerCancelled_CustomerStatusCanceledCancle(
+        @Payload CustomerCancelled customerCancelled
     ) {
-        if (!customerCanceled.validate()) return;
-        CustomerCanceled event = customerCanceled;
+        if (!customerCancelled.validate()) return;
+        CustomerCancelled event = customerCancelled;
         System.out.println(
             "\n\n##### listener CustomerStatusCanceledCancle : " +
-            customerCanceled.toJson() +
+            customerCancelled.toJson() +
             "\n\n"
         );
         // Sample Logic //

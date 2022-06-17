@@ -6,12 +6,12 @@ import msalogin.domain.*;
 import msalogin.infra.AbstractEvent;
 
 @Data
-public class SmartBankingCanceled extends AbstractEvent {
+public class CustomerCancelled extends AbstractEvent {
 
     private Long customerId;
     private String status;
 
-    public SmartBankingCanceled() {
+    public CustomerCancelled() {
         super();
     }
     // keep

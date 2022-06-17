@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front
+  name: login
   labels:
-    app: front
+    app: login
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front
+      app: login
   template:
     metadata:
       labels:
-        app: front
+        app: login
     spec:
       containers:
-        - name: front
-          image: username/front:latest
+        - name: login
+          image: username/login:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -165,15 +165,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: front
+  name: login
   labels:
-    app: front
+    app: login
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: front
+    app: login
 
 
 ---
