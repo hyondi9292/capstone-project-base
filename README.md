@@ -1,12 +1,12 @@
 # git fork
 ## 메인의 깃팟 실행 -- 시연시사용
 #각자 포크한 깃팟에서 수정분 깃헙에 커밋하고, 풀리퀘스트 하면, 메인에서 커밋해준다.
-https://gitpod.io/#https://github.com/alphamega89/capstone-project-base
+메인 깃팟 https://gitpod.io/#https://github.com/alphamega89/capstone-project-base
 # 캡스톤 프로젝트 환경
 
 ```
 브레인스토밍 https://labs.msaez.io/#/courses/cna-full/be513ff0-e2d5-11ec-b71d-f90e603c5333/capstone-team/alphamega89@naver.com
-https://labs.msaez.io//#/home/project/msalogin/alphamega89@naver.com
+
 ```
 
 
