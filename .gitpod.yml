@@ -16,3 +16,5 @@ tasks:
 
 #           netstat -lntp | grep :808
 
+image:
+  file: .gitpod.Dockerfile

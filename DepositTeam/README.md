@@ -1,5 +1,17 @@
 # DepositTeam
 
+# Docker mysql 컨테이너 실행
+docker run --name root -e MYSQL_ROOT_PASSWORD=mysql.1234 -d -p 3306:3306 mysql:latest
+# Docker container 확인 
+docker ps
+# Docker 시작
+docker start root
+# Container 접속
+docker exec -it root bash
+# mysql 실행
+mysql -u root -p
+# password mysql.1234
+
 ## Running in local development environment
 
 ```
