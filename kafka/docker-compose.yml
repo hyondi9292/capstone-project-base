@@ -49,4 +49,3 @@ services:
         ZK_HOSTS: "zookeeper:2181"
         APPLICATION_SECRET: "random-secret"
       command: -Dpidfile.path=/dev/null
-출처: https://ellune.tistory.com/62?category=769027 [Ellune's  Spadework:티스토리]
