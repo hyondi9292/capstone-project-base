@@ -11,20 +11,16 @@ import lombok.Data;
 public class Logincqrs {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long customerId;
-
+    @Column(name = "customer_id")
+    private String customerId;
+    @Column(name = "customer_status")
     private String customerStatus;
+    @Column(name = "banking_status")
     private String bankingStatus;
+    @Column(name = "account_status")
     private String accountStatus;
+    @Column(name = "account_no")
     private String accountNo;
+    @Column(name = "account_bal")
     private String accountBal;
-    public void setCustomerId(Object customerId2) {
-    }
-    public void setCustomerStatus(int i) {
-    }
-    public void setAccountBal(Object accountBal2) {
-    }
-    public void setAccountNo(Object accountNo2) {
-    }
 }

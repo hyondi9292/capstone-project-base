@@ -18,6 +18,11 @@ public class Balance {
     @Column
     private String accountBal;
     @Column
-    private String accountStatus;
+    private String accountStatus;  
+
+
 }
+
+
+
 

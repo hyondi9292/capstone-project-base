@@ -17,15 +17,13 @@ public class LogincqrsViewHandler {
     private LogincqrsRepository logincqrsRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenCustomerRegistered_then_CREATE_1(
-        @Payload CustomerRegistered customerRegistered
-    ) {
+    public void whenCustomerRegistered_then_CREATE_1(@Payload CustomerRegistered customerRegistered){
         try {
             if (!customerRegistered.validate()) return;
-
             // view 객체 생성
             Logincqrs logincqrs = new Logincqrs();
             // view 객체에 이벤트의 Value 를 set 함
+            System.out.println("#########customerRegistered.getCustomerId##########"+customerRegistered.getCustomerId());
             logincqrs.setCustomerId(customerRegistered.getCustomerId());
             // view 레파지 토리에 save
             logincqrsRepository.save(logincqrs);
@@ -33,7 +31,7 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
-
+    /*
     @StreamListener(KafkaProcessor.INPUT)
     public void whenSmartBankingRegistered_then_UPDATE_1(
         @Payload SmartBankingRegistered smartBankingRegistered
@@ -56,7 +54,9 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
+     */
 
+    /*
     @StreamListener(KafkaProcessor.INPUT)
     public void whenCustomerRegistered_then_UPDATE_2(
         @Payload CustomerRegistered customerRegistered
@@ -79,18 +79,18 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
+     */
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenBalanceIncreased_then_UPDATE_3(
-        @Payload BalanceIncreased balanceIncreased
-    ) {
+    public void whenBalanceIncreased_then_UPDATE_3(@Payload BalanceIncreased balanceIncreased) {
         try {
             if (!balanceIncreased.validate()) return;
             // view 객체 조회
-
-            List<Logincqrs> logincqrsList = logincqrsRepository.findByAccountNo(
-                balanceIncreased.getAccountNo()
+            System.out.println("#########logincqrsRepository##########"+logincqrsRepository);
+            List<Logincqrs> logincqrsList = logincqrsRepository.findBycustomerId(
+                balanceIncreased.getCustomerId()
             );
+            System.out.println("#########logincqrsList##########"+logincqrsList);
             for (Logincqrs logincqrs : logincqrsList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 logincqrs.setAccountBal(balanceIncreased.getAccountBal());
@@ -101,7 +101,7 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
-
+    /*
     @StreamListener(KafkaProcessor.INPUT)
     public void whenBalanceIncreased_then_UPDATE_4(
         @Payload BalanceIncreased balanceIncreased
@@ -123,7 +123,8 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
-
+     */
+    /*
     @StreamListener(KafkaProcessor.INPUT)
     public void whenAccountCreated_then_UPDATE_5(
         @Payload AccountCreated accountCreated
@@ -146,6 +147,7 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
+     */
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whenCustomerRegistered_then_DELETE_1(

@@ -7,13 +7,16 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class BalanceIncreased extends AbstractEvent {
 
-    private Long CustomerId;
+    private String CustomerId;
     private String AccountNo;
     private String AccountBal;
     public String getAccountNo() {
-        return null;
+        return AccountNo;
     }
-    public Object getAccountBal() {
-        return null;
+    public String getCustomerId() {
+        return CustomerId;
+    }
+    public String getAccountBal() {
+        return AccountBal;
     }
 }

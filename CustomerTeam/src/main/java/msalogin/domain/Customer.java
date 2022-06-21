@@ -25,35 +25,17 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
-    private Long CustomerId;
+    @Column(name = "customer_id")
+    private String customerId;
     @Column
-    private String Status;
+    private String status;
     @Column
-    private String Address;
+    private String address;
     @Column
-    private String Telno;
+    private String telno;
     @Column
-    private String Name;
+    private String name;
     @Column
-    private String JuminNo;
-
-    @PostPersist
-    public void onPostPersist() {
-        CustomerRegistered customerRegistered = new CustomerRegistered();
-        BeanUtils.copyProperties(this, customerRegistered);
-        customerRegistered.publishAfterCommit();
-
-        CustomerCancelled customerCancelled = new CustomerCancelled();
-        BeanUtils.copyProperties(this, customerCancelled);
-        customerCancelled.publishAfterCommit();
-
-    }
-
-    public static CustomerRepository repository() {
-        CustomerRepository customerRepository = CustomerTeamApplication.applicationContext.getBean(
-            CustomerRepository.class
-        );
-        return customerRepository;
-    }
+    private String Jumin_no;
     
 }
