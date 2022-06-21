@@ -101,21 +101,20 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
-    /*
+    
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenBalanceIncreased_then_UPDATE_4(
-        @Payload BalanceIncreased balanceIncreased
-    ) {
+    public void whenBalanceDecreased_then_UPDATE_4(@Payload BalanceDecreased balanceDecreased) {
         try {
-            if (!balanceIncreased.validate()) return;
+            if (!balanceDecreased.validate()) return;
             // view 객체 조회
 
-            List<Logincqrs> logincqrsList = logincqrsRepository.findByAccountNo(
-                balanceIncreased.getAccountNo()
+            System.out.println("#########logincqrsRepository##########"+logincqrsRepository);
+            List<Logincqrs> logincqrsList = logincqrsRepository.findBycustomerId(
+                balanceDecreased.getCustomerId()
             );
             for (Logincqrs logincqrs : logincqrsList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                logincqrs.setAccountBal(balanceIncreased.getAccountBal());
+                logincqrs.setAccountBal(balanceDecreased.getAccountBal());
                 // view 레파지 토리에 save
                 logincqrsRepository.save(logincqrs);
             }
@@ -123,7 +122,7 @@ public class LogincqrsViewHandler {
             e.printStackTrace();
         }
     }
-     */
+
     /*
     @StreamListener(KafkaProcessor.INPUT)
     public void whenAccountCreated_then_UPDATE_5(
@@ -150,11 +149,17 @@ public class LogincqrsViewHandler {
      */
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenCustomerRegistered_then_DELETE_1(
-        @Payload CustomerRegistered customerRegistered
-    ) {
+    public void whenCustomerRegistered_then_DELETE_1(@Payload CustomerCancelled customerCancelled) {
         try {
-            if (!customerRegistered.validate()) return;
+            if (!customerCancelled.validate()) return;
+                // view 객체 생성
+                Logincqrs logincqrs = new Logincqrs();
+                // view 객체에 이벤트의 Value 를 set 함
+                System.out.println("#########customerRegistered.getCustomerId##########"+customerCancelled.getCustomerId());
+                logincqrs.setCustomerId(customerCancelled.getCustomerId());
+                // view 레파지 토리에 save
+                logincqrsRepository.delete(logincqrs);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

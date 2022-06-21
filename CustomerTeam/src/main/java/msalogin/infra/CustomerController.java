@@ -32,6 +32,13 @@ public class CustomerController {
         customerService.createCustomer(customerId, Address, Telno, Name, JuminNo);
     }
 
+    //고객해지
+    @RequestMapping(value = "/delete/{customerId}", method = RequestMethod.POST)
+    public void deleteCustomerSvc (@PathVariable(value = "customerId") String customerId){
+        System.out.println("#############customerId############"+customerId);
+        customerService.deleteCustomer(customerId);
+    }
+
     //@RestResource(exported = true)
     @RequestMapping(value = "/check/{customerId}", method = RequestMethod.GET)
     public Customer getCustomer(@PathVariable(value = "customerId") String customerId){
