@@ -7,12 +7,15 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class CustomerRegistered extends AbstractEvent {
 
-    private Long CustomerId;
+    private String CustomerId;
     private String Status;
-    public Object getCustomerId() {
-        return null;
+
+    public String getCustomerId() {
+        return CustomerId;
     }
-    public Long getId() {
-        return null;
+
+    public String getStatus() {
+        return Status;
     }
+    
 }
