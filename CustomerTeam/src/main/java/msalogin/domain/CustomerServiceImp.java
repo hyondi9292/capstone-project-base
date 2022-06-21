@@ -17,6 +17,7 @@ public class CustomerServiceImp implements CustomerService {
     @Autowired
     private final CustomerRepository customerRepository;
 
+    //고객신규
     public void createCustomer(String customerId, String Address, String Telno, String Name, String JuminNo) {
         System.out.println("#########고객등록시작#######");
         Customer customer = new Customer();
@@ -40,8 +41,22 @@ public class CustomerServiceImp implements CustomerService {
         createcust.publishAfterCommit();
     }
 
-    public void deleteCustomer(String customerId) {
 
+    //고객해지
+    public void deleteCustomer(String customerId) {
+        System.out.println("#########Start Delete#######");
+        Optional<Customer> customerOptional = customerRepository.findById(customerId);
+        System.out.println("#########balanceOptional#######"+customerOptional);
+        Customer customer = customerOptional.get();
+        customerRepository.delete(customer);
+
+        //이벤트 발행
+        CustomerCancelled deletecust = new CustomerCancelled();
+        //이벤트 발행 값 셋팅
+        deletecust.setCustomerId(customerId);
+        deletecust.setStatus("9");
+        //이벤트발행
+        deletecust.publishAfterCommit();
     }
 
     public Customer getCustomer(String customerId){
