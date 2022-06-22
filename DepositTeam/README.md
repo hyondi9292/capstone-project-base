@@ -1,17 +1,5 @@
 # DepositTeam
 
-# Docker mysql 컨테이너 실행
-docker run --name root -e MYSQL_ROOT_PASSWORD=mysql.1234 -d -p 3306:3306 mysql:latest
-# Docker container 확인 
-docker ps
-# Docker 시작
-docker start root
-# Container 접속
-docker exec -it root bash
-# mysql 실행
-mysql -u root -p
-# password mysql.1234
-
 ## Running in local development environment
 
 ```
@@ -21,7 +9,7 @@ mvn spring-boot:run
 ## Packaging and Running in docker environment
 
 ```
-mvn package -B
+mvn package -B -DskipTests
 docker build -t username/DepositTeam:v1 .
 docker run username/DepositTeam:v1
 ```
@@ -48,7 +36,7 @@ Edit the deployment.yaml under the /kubernetes directory:
 
 Apply the yaml to the Kubernetes:
 ```
-kubectl apply -f kubernetes/deployment.yml
+kubectl apply -f kubernetes/deployment.yaml
 ```
 
 See the pod status:

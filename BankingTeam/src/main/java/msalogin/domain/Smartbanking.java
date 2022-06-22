@@ -5,9 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import msalogin.BankingTeamApplication;
-import msalogin.domain.SmartBankingCancelled;
-import msalogin.domain.SmartBankingRegistered;
-import org.springframework.beans.BeanUtils;
+import msalogin.domain.SmartBankingUpdated;
 
 @Entity
 @Table(name = "Smartbanking_table")
@@ -26,18 +24,8 @@ public class Smartbanking {
 
     @PostPersist
     public void onPostPersist() {
-        SmartBankingRegistered smartBankingRegistered = new SmartBankingRegistered();
-        BeanUtils.copyProperties(this, smartBankingRegistered);
-        smartBankingRegistered.publishAfterCommit();
-
-        SmartBankingCancelled smartBankingCancelled = new SmartBankingCancelled();
-        BeanUtils.copyProperties(this, smartBankingCancelled);
-        smartBankingCancelled.publishAfterCommit();
-        // Get request from Customer
-        //msalogin.external.Customer customer =
-        //    Application.applicationContext.getBean(msalogin.external.CustomerService.class)
-        //    .getCustomer(/** mapping value needed */);
-
+        SmartBankingUpdated smartBankingUpdated = new SmartBankingUpdated(this);
+        smartBankingUpdated.publishAfterCommit();
     }
 
     public static SmartbankingRepository repository() {
@@ -47,16 +35,23 @@ public class Smartbanking {
         return smartbankingRepository;
     }
 
-    public static void customerStatusCanceledCancle(
-        CustomerCancelled customerCancelled
-    ) {
+    public static void cusRegistered(CustomerRegistered customerRegistered) {
+        /** Example 1:  new item 
         Smartbanking smartbanking = new Smartbanking();
-        /*
-        LOGIC GOES HERE
+        repository().save(smartbanking);
+
         */
-        // repository().save(smartbanking);
+
+        /** Example 2:  finding and process
+        
+        repository().findById(customerRegistered.get???()).ifPresent(smartbanking->{
+            
+            smartbanking // do something
+            repository().save(smartbanking);
+
+
+         });
+        */
 
     }
-    // keep
-
 }

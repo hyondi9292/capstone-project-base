@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "DepositTeam", url = "${api.path.DepositTeam}")
+@FeignClient(name = "DepositTeam", url = "${api.url.DepositTeam}")
 public interface AccountService {
-    @RequestMapping(method = RequestMethod.GET, path = "/accounts/{CustomerId}")
-    public Account getAccount(@PathVariable("CustomerId") Long CustomerId);
+    @RequestMapping(method = RequestMethod.POST, path = "/accounts")
+    public void deposit(@RequestBody Account account);
     // keep
 
 }

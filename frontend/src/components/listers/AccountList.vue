@@ -17,6 +17,7 @@
               [ AccountNo :  {{data.accountNo }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               [ AccountBal :  {{data.accountBal }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               [ AccountStatus :  {{data.accountStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              [ TrnsCode :  {{data.trnsCode }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </v-list-item-subtitle>
 
           </v-list-item-content>

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import msalogin.CustomerTeamApplication;
 import msalogin.config.kafka.KafkaProcessor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
@@ -15,6 +16,11 @@ public class AbstractEvent {
 
     String eventType;
     Long timestamp;
+
+    public AbstractEvent(Object aggregate) {
+        this();
+        BeanUtils.copyProperties(aggregate, this);
+    }
 
     public AbstractEvent() {
         this.setEventType(this.getClass().getSimpleName());

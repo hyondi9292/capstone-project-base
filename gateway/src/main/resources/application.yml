@@ -24,6 +24,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/accounts/** 
+        - id: Customerinfo
+          uri: http://localhost:8085
+          predicates:
+            - Path= 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -63,6 +67,10 @@ spring:
           uri: http://depositTeam:8080
           predicates:
             - Path=/accounts/** 
+        - id: Customerinfo
+          uri: http://customerinfo:8080
+          predicates:
+            - Path= 
         - id: frontend
           uri: http://frontend:8080
           predicates:

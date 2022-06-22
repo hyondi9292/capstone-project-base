@@ -5,15 +5,20 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 
-import LoginManager from "./components/LoginManager"
+import LoginManager from "./components/listers/LoginCards"
+import LoginDetail from "./components/listers/LoginDetail"
 
-import Logincqrs from "./components/Logincqrs"
-import CustomerManager from "./components/CustomerManager"
+import CustomerManager from "./components/listers/CustomerCards"
+import CustomerDetail from "./components/listers/CustomerDetail"
 
-import SmartbankingManager from "./components/SmartbankingManager"
+import SmartbankingManager from "./components/listers/SmartbankingCards"
+import SmartbankingDetail from "./components/listers/SmartbankingDetail"
 
-import AccountManager from "./components/AccountManager"
+import AccountManager from "./components/listers/AccountCards"
+import AccountDetail from "./components/listers/AccountDetail"
 
+
+import Customerinfo from "./components/Customerinfo"
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -23,16 +28,21 @@ export default new Router({
                 name: 'LoginManager',
                 component: LoginManager
             },
-
             {
-                path: '/logincqrs',
-                name: 'Logincqrs',
-                component: Logincqrs
+                path: '/logins/:id',
+                name: 'LoginDetail',
+                component: LoginDetail
             },
+
             {
                 path: '/customers',
                 name: 'CustomerManager',
                 component: CustomerManager
+            },
+            {
+                path: '/customers/:id',
+                name: 'CustomerDetail',
+                component: CustomerDetail
             },
 
             {
@@ -40,13 +50,29 @@ export default new Router({
                 name: 'SmartbankingManager',
                 component: SmartbankingManager
             },
+            {
+                path: '/smartbankings/:id',
+                name: 'SmartbankingDetail',
+                component: SmartbankingDetail
+            },
 
             {
                 path: '/accounts',
                 name: 'AccountManager',
                 component: AccountManager
             },
+            {
+                path: '/accounts/:id',
+                name: 'AccountDetail',
+                component: AccountDetail
+            },
 
+
+            {
+                path: '/customerinfos',
+                name: 'Customerinfo',
+                component: Customerinfo
+            },
 
 
     ]

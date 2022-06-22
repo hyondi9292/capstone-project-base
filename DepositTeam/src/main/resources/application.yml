@@ -5,26 +5,11 @@ server:
 
 spring:
   profiles: default
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/DepositTeam
-    username: root
-    password: mysql.1234
   jpa:
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    generate-ddl: false
     properties:
       hibernate:
-        show-sql: true
+        show_sql: true
         format_sql: true
-        use_sql_comments: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-      naming:
-        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
   cloud:
     stream:
       kafka:

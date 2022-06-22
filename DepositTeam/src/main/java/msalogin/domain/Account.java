@@ -5,10 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import msalogin.DepositTeamApplication;
-import msalogin.domain.AccountCreated;
-import msalogin.domain.BalanceDecreased;
-import msalogin.domain.BalanceIncreased;
-import org.springframework.beans.BeanUtils;
+import msalogin.domain.AccountUpdated;
 
 @Entity
 @Table(name = "Account_table")
@@ -25,20 +22,12 @@ public class Account {
 
     private String accountStatus;
 
+    private String trnsCode;
+
     @PostPersist
     public void onPostPersist() {
-        /*
-        BalanceDecreased balanceDecreased = new BalanceDecreased();
-        BeanUtils.copyProperties(this, balanceDecreased);
-        balanceDecreased.publishAfterCommit();
-
-        BalanceIncreased balanceIncreased = new BalanceIncreased();
-        BeanUtils.copyProperties(this, balanceIncreased);
-        balanceIncreased.publishAfterCommit();
-        */
-        AccountCreated accountCreated = new AccountCreated();
-        BeanUtils.copyProperties(this, accountCreated);
-        accountCreated.publishAfterCommit();
+        AccountUpdated accountUpdated = new AccountUpdated(this);
+        accountUpdated.publishAfterCommit();
     }
 
     public static AccountRepository repository() {
@@ -47,6 +36,4 @@ public class Account {
         );
         return accountRepository;
     }
-    // keep
-
 }

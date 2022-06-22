@@ -1,20 +1,24 @@
 <template>
     <div style="margin: 0 -15px 0 -15px;">
-        <v-card-title>
+        <v-card-title v-if="editMode">
             {{label}}
         </v-card-title>
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
                 <v-text-field type="number" label="Amount" v-model="value.amount"/>
             </div>
-            <div v-else>
-                Amount :  {{value.amount}}
-            </div>
             <div v-if="editMode" style="margin-top:-20px;">
                 <v-text-field label="Currency" v-model="value.currency"/>
             </div>
             <div v-else>
-                Currency : {{value.currency}}
+                <v-card
+                    class="mx-auto"
+                    color="orange"
+                    dark
+                    max-width="400"
+                    style="padding:10px 15px 10px 15px; font-weight:500; font-size:20px;"> 
+                    {{value.amount}} {{value.currency}} 
+                </v-card>
             </div>
         </v-card-text>
     </div>
@@ -35,6 +39,8 @@
                     'currency': '',
                 };
             }
+
+            this.value.amount = this.value.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         },
         watch: {
             value(newVal) {

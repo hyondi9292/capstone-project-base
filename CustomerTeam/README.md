@@ -9,7 +9,7 @@ mvn spring-boot:run
 ## Packaging and Running in docker environment
 
 ```
-mvn package -B
+mvn package -B -DskipTests
 docker build -t username/CustomerTeam:v1 .
 docker run username/CustomerTeam:v1
 ```
@@ -36,7 +36,7 @@ Edit the deployment.yaml under the /kubernetes directory:
 
 Apply the yaml to the Kubernetes:
 ```
-kubectl apply -f kubernetes/deployment.yml
+kubectl apply -f kubernetes/deployment.yaml
 ```
 
 See the pod status:

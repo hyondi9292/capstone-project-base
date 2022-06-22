@@ -36,6 +36,9 @@
             <div>
                 <String label="AccountStatus" v-model="value.accountStatus" :editMode="editMode"/>
             </div>
+            <div>
+                <String label="TrnsCode" v-model="value.trnsCode" :editMode="editMode"/>
+            </div>
         </v-card-text>
 
         <v-card-actions>
@@ -122,6 +125,9 @@
                 }
                 if(!('accountStatus' in this.value)) {
                     this.value.accountStatus = null;
+                }
+                if(!('trnsCode' in this.value)) {
+                    this.value.trnsCode = null;
                 }
             }            
         },

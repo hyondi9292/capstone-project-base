@@ -68,6 +68,7 @@
             { text: "accountNo", value: "accountNo" },
             { text: "accountBal", value: "accountBal" },
             { text: "accountStatus", value: "accountStatus" },
+            { text: "trnsCode", value: "trnsCode" },
         ],
         account : [],
         newValue: {},

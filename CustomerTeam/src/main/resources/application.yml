@@ -38,8 +38,9 @@ logging:
     org.springframework.cloud: debug
 
 api:
-  path:
-    DepositTeam: localhost:8080
+  url:
+    DepositTeam: localhost:8084
+    Customerinfo: localhost:8085
 
 server:
   port: 8082
@@ -70,6 +71,7 @@ spring:
           contentType: application/json
 
 api:
-  path:
+  url:
     DepositTeam: DepositTeam:8080
+    Customerinfo: Customerinfo:8080
 

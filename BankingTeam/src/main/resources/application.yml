@@ -37,9 +37,6 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
-api:
-  path:
-    CustomerTeam: localhost:8080
 
 server:
   port: 8083
@@ -69,7 +66,4 @@ spring:
           destination: msalogin
           contentType: application/json
 
-api:
-  path:
-    CustomerTeam: CustomerTeam:8080
 
