@@ -8,12 +8,8 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class SmartBankingUpdated extends AbstractEvent {
 
-    private Long customerId;
+    private String customerId;
     private String status;
-
-    public SmartBankingUpdated(Smartbanking aggregate) {
-        super(aggregate);
-    }
 
     public SmartBankingUpdated() {
         super();

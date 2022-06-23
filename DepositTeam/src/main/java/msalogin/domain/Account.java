@@ -13,8 +13,8 @@ import msalogin.domain.AccountUpdated;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long customerId;
+    @Column(name = "customer_id")
+    private String customerId;
 
     private String accountNo;
 
@@ -23,17 +23,4 @@ public class Account {
     private String accountStatus;
 
     private String trnsCode;
-
-    @PostPersist
-    public void onPostPersist() {
-        AccountUpdated accountUpdated = new AccountUpdated(this);
-        accountUpdated.publishAfterCommit();
-    }
-
-    public static AccountRepository repository() {
-        AccountRepository accountRepository = DepositTeamApplication.applicationContext.getBean(
-            AccountRepository.class
-        );
-        return accountRepository;
-    }
 }

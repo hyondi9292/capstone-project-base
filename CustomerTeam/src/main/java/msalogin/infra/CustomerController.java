@@ -27,10 +27,18 @@ public class CustomerController {
                                     @PathVariable(value = "Telno") String Telno,
                                     @PathVariable(value = "Name") String Name,
                                     @PathVariable(value = "JuminNo") String JuminNo){
-        System.out.println("#############Customer Controller############");
+        System.out.println("#############Customer Controller : Create############");
         customerService.createCustomer(customerId, Address, Telno, Name, JuminNo);
     }
 
+    //고객해지
+    @RequestMapping(value = "/delete/{customerId}", method = RequestMethod.POST)
+    public void deleteCustomerSvc (@PathVariable(value = "customerId") String customerId){
+        System.out.println("#############Customer Controller : delete############");
+        customerService.deleteCustomer(customerId);
+    }
+
+    //고객조회
     //@RestResource(exported = true)
     @RequestMapping(value = "/check/{customerId}", method = RequestMethod.GET)
     public Customer getCustomer(@PathVariable(value = "customerId") String customerId){

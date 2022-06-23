@@ -28,7 +28,8 @@ public class CustomerServiceImp implements CustomerService {
         customer.setTelNo(telNo);
         customer.setName(name);
         customer.setTelNo(juminNo);
-        customer.setStatus("1");
+        String custStatus = "1";
+        customer.setStatus(custStatus);
         System.out.println("#########Customer Service : Customer object#######"+customer);
 
         //DB저장
@@ -38,18 +39,37 @@ public class CustomerServiceImp implements CustomerService {
         CustomerRegistered createcust = new CustomerRegistered();
         //이벤트 발행 값 셋팅
         createcust.setCustomerId(customerId);
-        createcust.setStatus("1");
+        createcust.setStatus(custStatus);
         //이벤트발행
         createcust.publishAfterCommit();
     }
 
 
+    //고객해지 (고객상태변경 : 1(정상) -> 9(해지) )
     public void deleteCustomer(String customerId) {
+        System.out.println("#########Customer Service : Start Delete Customer#######");
+        Optional<Customer> customerOptional = customerRepository.findById(customerId);
+        Customer customer = customerOptional.get();
 
+        String custStatus = "9";
+        customer.setStatus(custStatus);
+        System.out.println("#########Delete Customer obj############"+customer);
+
+        //변경된 고객 상태 DB저장
+        customerRepository.save(customer);
+
+        //이벤트 발행
+        CustomerCancelled deletecust = new CustomerCancelled();
+        //이벤트 발행 값 셋팅
+        deletecust.setCustomerId(customerId);
+        deletecust.setStatus(custStatus);
+        //이벤트발행
+        deletecust.publishAfterCommit();
     }
 
+    //고객조회
     public Customer getCustomer(String customerId){
-        //Long id = Long.parseLong(customerId);
+        
         System.out.println("#########Customer Service : Start Get Customer#######");
         Optional<Customer> customerOptional = customerRepository.findById(customerId);
         System.out.println("#########Get Customer obj############"+customerOptional);

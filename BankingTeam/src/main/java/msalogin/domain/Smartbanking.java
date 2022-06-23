@@ -13,45 +13,12 @@ import msalogin.domain.SmartBankingUpdated;
 public class Smartbanking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long customerId;
+    @Column(name = "customer_id")
+    private String customerId;
 
     private String bankingId;
 
     private String password;
 
     private String status;
-
-    @PostPersist
-    public void onPostPersist() {
-        SmartBankingUpdated smartBankingUpdated = new SmartBankingUpdated(this);
-        smartBankingUpdated.publishAfterCommit();
-    }
-
-    public static SmartbankingRepository repository() {
-        SmartbankingRepository smartbankingRepository = BankingTeamApplication.applicationContext.getBean(
-            SmartbankingRepository.class
-        );
-        return smartbankingRepository;
-    }
-
-    public static void cusRegistered(CustomerRegistered customerRegistered) {
-        /** Example 1:  new item 
-        Smartbanking smartbanking = new Smartbanking();
-        repository().save(smartbanking);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(customerRegistered.get???()).ifPresent(smartbanking->{
-            
-            smartbanking // do something
-            repository().save(smartbanking);
-
-
-         });
-        */
-
-    }
 }
