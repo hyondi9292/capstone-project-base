@@ -7,7 +7,7 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class AccountUpdated extends AbstractEvent {
 
-    private Long CustomerId;
+    private String CustomerId;
     private String AccountNo;
     private String AccountBal;
     private String AccountStatus;
