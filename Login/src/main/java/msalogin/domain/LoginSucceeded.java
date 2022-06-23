@@ -8,13 +8,9 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class LoginSucceeded extends AbstractEvent {
 
-    private Long bankingId;
+    private String bankingId;
     private String islogin;
-
-    public LoginSucceeded(Login aggregate) {
-        super(aggregate);
-    }
-
+    
     public LoginSucceeded() {
         super();
     }

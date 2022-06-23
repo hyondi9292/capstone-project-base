@@ -8,8 +8,10 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class SmartBankingUpdated extends AbstractEvent {
 
-    private Long CustomerId;
+    private String CustomerId;
     private String Status;
+    private String bankingId;
+    private String password;
     // keep
 
 }

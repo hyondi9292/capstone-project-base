@@ -8,7 +8,7 @@ import msalogin.infra.AbstractEvent;
 @Data
 public class CustomerCancelled extends AbstractEvent {
 
-    private Long CustomerId;
+    private String CustomerId;
     private String Status;
     // keep
 

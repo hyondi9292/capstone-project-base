@@ -1,7 +1,7 @@
 package msalogin.domain;
 
 public interface AccountService {
-    void createAccount (String customerId, String accountNo, String accountBal, String accountStatus, String trnsCode);
+    void createAccount (String customerId);
     void deleteAccount (String customerId);
     Account getAccount(String customerId);
     Account save(String data);

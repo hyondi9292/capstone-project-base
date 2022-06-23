@@ -10,6 +10,8 @@ public class SmartBankingUpdated extends AbstractEvent {
 
     private String customerId;
     private String status;
+    private String bankingId;
+    private String password;
 
     public SmartBankingUpdated() {
         super();
