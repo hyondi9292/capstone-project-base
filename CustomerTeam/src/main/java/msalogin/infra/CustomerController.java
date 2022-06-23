@@ -16,6 +16,33 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
 
     @Autowired
-    CustomerRepository customerRepository;
+    CustomerService customerService;
     // keep
+
+    //고객생성 (String customerId, String address, String telNo, String name, String juminNo);
+    @RequestMapping(value = "/create/{customerId}/{Address}/{Telno}/{Name}/{JuminNo}", method = RequestMethod.POST)
+    public void createCustomerSvc (
+                                    @PathVariable(value = "customerId") String customerId, 
+                                    @PathVariable(value = "Address") String Address,
+                                    @PathVariable(value = "Telno") String Telno,
+                                    @PathVariable(value = "Name") String Name,
+                                    @PathVariable(value = "JuminNo") String JuminNo){
+        System.out.println("#############Customer Controller : Create############");
+        customerService.createCustomer(customerId, Address, Telno, Name, JuminNo);
+    }
+
+    //고객해지
+    @RequestMapping(value = "/delete/{customerId}", method = RequestMethod.POST)
+    public void deleteCustomerSvc (@PathVariable(value = "customerId") String customerId){
+        System.out.println("#############Customer Controller : delete############");
+        customerService.deleteCustomer(customerId);
+    }
+
+    //고객조회
+    //@RestResource(exported = true)
+    @RequestMapping(value = "/check/{customerId}", method = RequestMethod.GET)
+    public Customer getCustomer(@PathVariable(value = "customerId") String customerId){
+        System.out.println("#############Customer Controller method : getCustomer############"+customerId);
+        return  this.customerService.getCustomer(customerId);
+    }
 }

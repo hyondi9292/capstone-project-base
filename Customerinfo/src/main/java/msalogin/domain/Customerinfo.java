@@ -11,9 +11,8 @@ import lombok.Data;
 public class Customerinfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long customerId;
-
+    @Column(name = "customer_id")
+    private String customerId;
     private String customerStatus;
     private String bankingStatus;
     private String accountStatus;
