@@ -18,7 +18,7 @@ public class SmartbankingServiceImp implements SmartbankingService{
     private final SmartbankingRepository smartbankingRepository;
 
     //스마트폰뱅킹 신규
-    public void createSmartBanking (String customerId, String bankingId, String password, String status){
+    public void createSmartBanking (String customerId, String bankingId, String password){
         System.out.println("#########Smartbanking Service : Start Register SmartbankingService#######");
         //신규된 고객 obj 확인
         Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findById(customerId);
@@ -34,6 +34,8 @@ public class SmartbankingServiceImp implements SmartbankingService{
         //이벤트발행
         SmartBankingUpdated smartBankingCustEvt = new SmartBankingUpdated();
         smartBankingCustEvt.setCustomerId(customerId);
+        smartBankingCustEvt.setBankingId(bankingId);
+        smartBankingCustEvt.setPassword(password);
         smartBankingCustEvt.setStatus(custStatus);
         smartBankingCustEvt.publishAfterCommit();
 

@@ -20,14 +20,13 @@ public class SmartbankingController {
     // keep
 
     //스마튼폰뱅킹 신규 (String customerId, String bankingId, String password, String status);
-    @RequestMapping(value = "/create/{customerId}/{bankingId}/{password}/{status}", method = RequestMethod.POST)
+    @RequestMapping(value = "/create/{customerId}/{bankingId}/{password}", method = RequestMethod.POST)
     public void createSmartBankingSvc (
                                     @PathVariable(value = "customerId") String customerId, 
                                     @PathVariable(value = "bankingId") String bankingId,
-                                    @PathVariable(value = "password") String password,
-                                    @PathVariable(value = "status") String status){
+                                    @PathVariable(value = "password") String password){
         System.out.println("#############SmartbankingService Controller : Create############");
-        smartbankingService.createSmartBanking(customerId, bankingId, password, status);
+        smartbankingService.createSmartBanking(customerId, bankingId, password);
     }
 
     //고객해지
